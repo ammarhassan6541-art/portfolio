@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #a855f7, 0 0 20px #a855f7;
+  }
+  100% {
+    text-shadow: 0 0 30px #a855f7, 0 0 60px #a855f7;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1s ease forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+
+
+.imge {
+  position: relative;
+  z-index: 2;
+  width: 97.5%;
+  height: 97.5%;
+  object-fit: cover;
+  border-radius: 16px;
+  transform: scale(1);
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.imge:hover {
+  transform: scale(1.1);
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.wrapper::before {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 150%;
+  background: conic-gradient(
+    white  0 25%,
+    transparent 25% 50%,
+    #BD7FFB 50% 75%,
+    transparent 75%
+  );
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: #101010;
+  border-radius: 16px;
+  z-index: 1;
+}
+
+
+  
